@@ -1,7 +1,7 @@
-﻿from_category,to_category,transition,count,percentage
-Retrieval,Retrieval,Retrieval -> Retrieval,19,54.3
-Processing/Execution,Processing/Execution,Processing/Execution -> Processing/Execution,6,17.1
-Retrieval,Processing/Execution,Retrieval -> Processing/Execution,4,11.4
-Modification,Modification,Modification -> Modification,2,5.7
-Processing/Execution,Retrieval,Processing/Execution -> Retrieval,2,5.7
-Retrieval,Modification,Retrieval -> Modification,2,5.7
+﻿"from_category","to_category","transition","count","percentage"
+"Retrieval","Retrieval","Retrieval -> Retrieval","19","54.3"
+"Processing/Execution","Processing/Execution","Processing/Execution -> Processing/Execution","6","17.1"
+"Retrieval","Processing/Execution","Retrieval -> Processing/Execution","4","11.4"
+"Processing/Execution","Retrieval","Processing/Execution -> Retrieval","2","5.7"
+"Retrieval","Modification","Retrieval -> Modification","2","5.7"
+"Modification","Modification","Modification -> Modification","2","5.7"
