@@ -1,0 +1,15 @@
+﻿from_tool,to_tool,transition,count,percentage
+shell,shell,shell -> shell,6,17.1
+list_label,search_issues,list_label -> search_issues,5,14.3
+search_issues,search_issues,search_issues -> search_issues,4,11.4
+list_issues,shell,list_issues -> shell,3,8.6
+search_issues,list_label,search_issues -> list_label,3,8.6
+add_labels,add_comment,add_labels -> add_comment,2,5.7
+issue_read,search_issues,issue_read -> search_issues,2,5.7
+search_issues,add_labels,search_issues -> add_labels,2,5.7
+search_issues,issue_read,search_issues -> issue_read,2,5.7
+search_issues,list_issues,search_issues -> list_issues,2,5.7
+issue_read,issue_read,issue_read -> issue_read,1,2.9
+search_issues,shell,search_issues -> shell,1,2.9
+shell,list_issues,shell -> list_issues,1,2.9
+shell,search_issues,shell -> search_issues,1,2.9

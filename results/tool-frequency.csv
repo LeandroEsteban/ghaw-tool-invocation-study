@@ -1,0 +1,8 @@
+﻿tool,category,invocations,percentage
+search_issues,Retrieval,15,37.5
+shell,Processing/Execution,10,25.0
+list_label,Retrieval,5,12.5
+list_issues,Retrieval,3,7.5
+issue_read,Retrieval,3,7.5
+add_labels,Modification,2,5.0
+add_comment,Modification,2,5.0

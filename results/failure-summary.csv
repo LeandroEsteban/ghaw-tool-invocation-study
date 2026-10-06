@@ -1,0 +1,5 @@
+﻿failure_type,runs,agent_started,tool_calls_observed_interpretation
+Provider authentication / HTTP 401,10,yes,0 observed
+Model inference / HTTP 429,4,yes,0 observed
+Setup/install,1,no,N/A: agent did not start
+Total,15,14 yes / 1 no,0 where observable
