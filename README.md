@@ -1,5 +1,5 @@
 # ghaw-tool-invocation-study
-Este repositorio contiene el paquete de réplica de la **Etapa 2** del estudio *Patrones de Invocación de Herramientas en GitHub Agentic Workflows*. El objetivo del paquete es permitir reproducir los resultados preliminares reportados en el artículo a partir de los datos conservados del caso piloto.
+Este repositorio contiene el paquete de réplica de la **Etapa 2** del estudio *Patrones de Invocación de Herramientas en GitHub Agentic Workflows*. Su objetivo es permitir reproducir los resultados preliminares reportados en el artículo a partir de los datos preservados del caso piloto.
 
 > **Estado del estudio.** La evidencia presentada en esta etapa corresponde a un caso piloto sobre un único repositorio. El estudio completo proyecta ampliar el mismo procedimiento a diez repositorios.
 
@@ -7,17 +7,19 @@ Este repositorio contiene el paquete de réplica de la **Etapa 2** del estudio *
 
 El caso piloto corresponde a:
 
-- **Repositorio:** `apache/cloudstack`
+- **Repositorio analizado:** `apache/cloudstack`
 - **Workflow:** `Daily Issue Triage`
 - **Workflow ID:** `297795967`
 - **Unidad primaria de análisis:** ejecución individual del workflow (`run`)
 - **Unidad secundaria de análisis:** invocación individual de herramienta dentro de un run
 
-La muestra preliminar contiene **20 runs**: 5 exitosos y 15 fallidos. Los cinco runs exitosos fueron analizados a nivel de invocación y secuencia de herramientas; los quince runs fallidos fueron inspeccionados para caracterizar la etapa y causa del fallo.
+La muestra preliminar contiene **20 runs**: **5 exitosos** y **15 fallidos**. Los cinco runs exitosos fueron analizados a nivel de invocación y secuencia de herramientas; los quince runs fallidos fueron inspeccionados para caracterizar la etapa y causa del fallo.
+
+Para efectos de reproducción, la muestra piloto queda fijada explícitamente por los 20 `run_id` incluidos en `data/processed/runs.csv`. El criterio histórico exacto que llevó a seleccionar este subconjunto durante el piloto no quedó documentado de forma completa, por lo que no se reconstruye ni se infiere retrospectivamente.
 
 ## 2. Resultados preliminares reproducibles
 
-El paquete debe permitir regenerar los siguientes resultados reportados en la Etapa 2:
+El paquete permite reproducir los siguientes resultados reportados en la Etapa 2:
 
 | Resultado | Valor |
 |---|---:|
@@ -28,7 +30,7 @@ El paquete debe permitir regenerar los siguientes resultados reportados en la Et
 | Herramientas distintas | 7 |
 | Transiciones consecutivas | 35 |
 
-### Frecuencia de herramientas
+### 2.1 Frecuencia de herramientas
 
 | Herramienta | Categoría | Invocaciones | Porcentaje |
 |---|---|---:|---:|
@@ -41,7 +43,7 @@ El paquete debe permitir regenerar los siguientes resultados reportados en la Et
 | `add_comment` | Modification | 2 | 5,0% |
 | **Total** |  | **40** | **100%** |
 
-### Frecuencia por categoría
+### 2.2 Frecuencia por categoría
 
 | Categoría | Invocaciones | Porcentaje |
 |---|---:|---:|
@@ -49,17 +51,23 @@ El paquete debe permitir regenerar los siguientes resultados reportados en la Et
 | Processing/Execution | 10 | 25% |
 | Modification | 4 | 10% |
 
-### Transiciones más frecuentes
+### 2.3 Transiciones más frecuentes
 
 | Transición | Frecuencia |
 |---|---:|
-| `shell → shell` | 6 |
-| `list_label → search_issues` | 5 |
-| `search_issues → search_issues` | 4 |
+| `shell -> shell` | 6 |
+| `list_label -> search_issues` | 5 |
+| `search_issues -> search_issues` | 4 |
 
-A nivel de categorías, las transiciones más frecuentes fueron `Retrieval → Retrieval` (19), `Processing/Execution → Processing/Execution` (6) y `Retrieval → Processing/Execution` (4).
+A nivel de categorías, las transiciones más frecuentes fueron:
 
-### Fallos observados
+- `Retrieval -> Retrieval`: 19
+- `Processing/Execution -> Processing/Execution`: 6
+- `Retrieval -> Processing/Execution`: 4
+
+El resto de las transiciones se encuentra en `results/transition-frequency.csv` y `results/category-transition-frequency.csv`.
+
+### 2.4 Fallos observados
 
 Los 15 runs fallidos se distribuyeron de la siguiente forma:
 
@@ -69,27 +77,50 @@ Los 15 runs fallidos se distribuyeron de la siguiente forma:
 | Inferencia del modelo / HTTP 429 | 4 |
 | Instalación o setup | 1 |
 
-Los errores 401 y 429 ocurrieron antes de observar tool calls del agente. El fallo de instalación ocurrió antes de poder establecer que el agente hubiera iniciado. Por esta razón, estos casos no se interpretan como ejecuciones donde el agente "decidió" no utilizar herramientas.
+Los errores 401 y 429 ocurrieron antes de una trayectoria instrumental comparable con las ejecuciones exitosas. El fallo de instalación ocurrió antes de poder establecer que el agente hubiera iniciado. Por esta razón, estos casos **no se interpretan como ejecuciones donde el agente decidió no utilizar herramientas** ni se utilizan para inferir que una menor cantidad de tool calls causa el fallo.
 
 ## 3. Definición operacional de invocación de herramienta
 
 Se considera **invocación de herramienta** una acción explícitamente emitida por el agente y registrada en sus artefactos de ejecución. Se incluyen herramientas MCP y herramientas locales de ejecución cuando puede identificarse la herramienta y su llamada.
 
-Las operaciones auxiliares generadas posteriormente por componentes de infraestructura —por ejemplo, guards, gateways o backends— **no se contabilizan como decisiones instrumentales del agente**. En particular, llamadas internas como `search_repositories` detectadas en registros RPC/MCP no se cuentan si fueron generadas por infraestructura a partir de otra acción explícita del agente.
+Las operaciones auxiliares generadas posteriormente por componentes de infraestructura —por ejemplo, guards, gateways o backends— **no se contabilizan como decisiones instrumentales del agente**.
 
-La fuente primaria para reconstruir el comportamiento del agente es `agent-stdio.log`. Los registros RPC/MCP y gateway se utilizan únicamente como evidencia auxiliar para validar llamadas o diagnosticar fallos.
+Por ejemplo, si la traza representa:
+
+```text
+Agente -> search_issues -> guard -> search_repositories -> backend
+```
+
+se contabiliza `search_issues` como invocación del agente, pero `search_repositories` no se contabiliza como una segunda decisión del agente si fue generada internamente por la infraestructura.
+
+La fuente primaria para reconstruir las invocaciones es:
+
+```text
+agent-stdio.log
+```
+
+Los registros RPC/MCP y gateway se utilizan como evidencia auxiliar para validar llamadas o diagnosticar fallos.
 
 ## 4. Clasificación funcional
 
 Las herramientas observadas se clasifican mediante los siguientes criterios:
 
-- **Retrieval:** consulta o recuperación de información sin modificar el estado externo (`search_issues`, `list_label`, `issue_read`, `list_issues`).
-- **Processing/Execution:** procesamiento o ejecución de comandos locales (`shell`).
-- **Modification:** acciones que modifican el estado externo (`add_labels`, `add_comment`).
+- **Retrieval:** consulta o recuperación de información sin modificar el estado externo.
+  - `search_issues`
+  - `list_label`
+  - `issue_read`
+  - `list_issues`
+- **Processing/Execution:** procesamiento o ejecución de comandos locales.
+  - `shell`
+- **Modification:** acciones que modifican el estado externo.
+  - `add_labels`
+  - `add_comment`
+
+Los criterios completos se documentan en `docs/methodology.md`.
 
 ## 5. Runs del caso piloto
 
-### Runs exitosos
+### 5.1 Runs exitosos
 
 | Run ID | Fecha | Conclusion |
 |---|---|---|
@@ -99,7 +130,7 @@ Las herramientas observadas se clasifican mediante los siguientes criterios:
 | `36576508937` | 2026-09-29 | success |
 | `36429848934` | 2026-09-28 | success |
 
-### Runs fallidos
+### 5.2 Runs fallidos
 
 **Setup/install**
 
@@ -125,6 +156,8 @@ Las herramientas observadas se clasifican mediante los siguientes criterios:
 - `30917589923` — 2026-08-04
 - `30821613475` — 2026-08-03
 
+El inventario maestro se encuentra en `data/processed/runs.csv`. La clasificación de los 15 fallos se encuentra en `data/processed/failure-classification.csv`.
+
 ## 6. Fuentes de datos y artefactos
 
 La identificación inicial de ejecuciones se realizó con GitHub CLI mediante:
@@ -137,36 +170,43 @@ gh run list `
     --json databaseId,conclusion,status,createdAt
 ```
 
-Los análisis utilizaron artefactos asociados a cada ejecución. La fuente primaria para identificar tool calls fue:
+Los datos raw se conservan en un directorio por `run_id` bajo:
+
+```text
+data/raw/run-<run_id>/
+```
+
+Entre los artefactos utilizados se encuentran, según disponibilidad:
 
 ```text
 agent-stdio.log
-```
-
-Como evidencia auxiliar se utilizaron, cuando estaban disponibles:
-
-```text
 mcp-logs/rpc-messages.jsonl
 mcp-logs/mcp-gateway.log
 agent_output.json
 github_rate_limits.jsonl
 ```
 
-Los archivos RPC/MCP no deben utilizarse directamente como dataset de invocaciones del agente porque pueden contener operaciones internas generadas por la infraestructura.
+`agent-stdio.log` es la fuente primaria para identificar tool calls. Los archivos RPC/MCP/gateway no se utilizan directamente como dataset principal de invocaciones porque pueden contener operaciones internas generadas por la infraestructura.
+
+El run `35606293166` corresponde al fallo de setup/install y no contiene una traza `agent-stdio.log` comparable con los runs en que el agente sí inició.
 
 ## 7. Estructura del paquete
 
-La versión final del paquete de réplica se organiza de la siguiente forma:
+La estructura relevante del repositorio es:
 
 ```text
 .
 ├── README.md
 ├── scripts/
 │   ├── extract_agent_tools.ps1
-│   └── analyze_results.ps1
+│   ├── analyze_sequences.ps1
+│   └── validate_results.ps1
 ├── data/
 │   ├── raw/
-│   │   └── <artefactos preservados por run_id>/
+│   │   ├── run-37013897842/
+│   │   ├── run-36869901112/
+│   │   ├── ...
+│   │   └── run-30821613475/
 │   └── processed/
 │       ├── agent-tool-invocations.csv
 │       ├── agent-tool-summary.csv
@@ -177,20 +217,19 @@ La versión final del paquete de réplica se organiza de la siguiente forma:
 │   ├── category-frequency.csv
 │   ├── transition-frequency.csv
 │   ├── category-transition-frequency.csv
-│   └── failure-summary.csv
+│   ├── failure-summary.csv
+│   └── pilot-summary.md
 └── docs/
     ├── environment.md
     ├── methodology.md
     └── data-dictionary.md
 ```
 
-> Los nombres de scripts anteriores corresponden a la versión consolidada del paquete de réplica. El nombre y contenido completo del script utilizado originalmente durante el piloto no quedaron preservados; por ello, la versión publicada deberá identificarse como una implementación reproducible consolidada y no como una copia literal del script histórico.
-
 ## 8. Entorno
 
 El piloto original fue realizado en Windows utilizando PowerShell y GitHub CLI. Las versiones exactas utilizadas durante la primera ejecución no quedaron registradas en ese momento.
 
-Para la validación del paquete se registró el siguiente entorno:
+Durante la preparación y validación del paquete se registró el siguiente entorno:
 
 | Componente | Versión |
 |---|---|
@@ -200,46 +239,74 @@ Para la validación del paquete se registró el siguiente entorno:
 | GitHub CLI (`gh`) | `2.102.0` |
 | GitHub Agentic Workflows (`gh aw`) | `v0.89.21` |
 
-La autenticación de GitHub CLI estaba configurada mediante el keyring de Windows. **No se incluyen tokens, credenciales ni datos de cuenta en este paquete.**
+La autenticación de GitHub CLI estaba configurada mediante el keyring de Windows. **No se incluyen tokens, credenciales ni secretos en este paquete.**
 
-Para reproducir los resultados a partir de los datos conservados en `data/raw/` y `data/processed/` no debería ser necesario autenticarse nuevamente en GitHub.
+Para reproducir los resultados a partir de los datos preservados en `data/raw/` y `data/processed/` no es necesario utilizar la cuenta original de GitHub.
+
+Más detalles en `docs/environment.md`.
 
 ## 9. Reproducción
 
-El paquete está diseñado para admitir dos niveles de reproducción.
+El paquete admite dos niveles de reproducción.
 
-### 9.1 Reproducción desde los datos procesados
+### 9.1 Reproducción del análisis desde los datos procesados
 
-Este es el camino recomendado para reproducir los resultados reportados en la Etapa 2 sin depender de que los artefactos originales sigan disponibles en GitHub.
+Este es el procedimiento mínimo para regenerar las frecuencias y transiciones reportadas en la Etapa 2 sin volver a extraer tool calls desde los logs.
 
-1. Clonar o descargar esta versión del paquete.
-2. Verificar que los archivos de `data/processed/` estén presentes.
-3. Ejecutar el script de análisis:
+Desde la raíz del repositorio, ejecutar en PowerShell:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\analyze_results.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\analyze_sequences.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\validate_results.ps1
 ```
 
-4. Verificar los archivos generados en `results/`.
-5. Confirmar que las cifras coincidan con las reportadas en la sección **Resultados preliminares reproducibles** de este README.
-
-### 9.2 Reproducción desde los artefactos raw
-
-Cuando los artefactos preservados de los runs estén disponibles en `data/raw/`, se podrá repetir la extracción de invocaciones antes del análisis:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\extract_agent_tools.ps1
-powershell -ExecutionPolicy Bypass -File .\scripts\analyze_results.ps1
-```
-
-El extractor debe producir al menos:
+`analyze_sequences.ps1` utiliza:
 
 ```text
 data/processed/agent-tool-invocations.csv
-data/processed/agent-tool-summary.csv
 ```
 
-El procedimiento de extracción identifica herramientas MCP mediante el patrón:
+y regenera:
+
+```text
+results/tool-frequency.csv
+results/category-frequency.csv
+results/transition-frequency.csv
+results/category-transition-frequency.csv
+```
+
+`validate_results.ps1` comprueba automáticamente que los resultados coincidan con los valores reportados para el piloto, entre ellos:
+
+```text
+20 runs
+5 success
+15 failure
+40 invocaciones
+7 herramientas distintas
+26 Retrieval
+10 Processing/Execution
+4 Modification
+35 transiciones
+10 fallos HTTP 401
+4 fallos HTTP 429
+1 fallo setup/install
+```
+
+También valida las principales transiciones de herramienta y categoría.
+
+### 9.2 Reproducción completa desde los artefactos raw
+
+Para repetir primero la extracción desde los logs preservados y luego regenerar los resultados, ejecutar desde la raíz del repositorio:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\extract_agent_tools.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\analyze_sequences.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\validate_results.ps1
+```
+
+El extractor busca recursivamente archivos `agent-stdio.log` dentro de `data/raw/` e identifica el `run_id` a partir del nombre del directorio `run-<run_id>`.
+
+El procedimiento de extracción reconoce herramientas MCP mediante el patrón:
 
 ```regex
 ([A-Za-z0-9_-]+)\s+\(MCP:\s*([^)]+)\)
@@ -251,11 +318,24 @@ y herramientas locales mediante:
 Running command\s+\(shell\)
 ```
 
-Durante el piloto también fue necesario normalizar un problema de codificación del carácter utilizado para representar las invocaciones en el log.
+El extractor produce:
 
-## 10. Datos procesados principales
+```text
+data/processed/agent-tool-invocations.csv
+data/processed/agent-tool-summary.csv
+```
 
-`agent-tool-invocations.csv` representa el nivel de invocación e incluye, como mínimo:
+> **Nota de procedencia del script.** `extract_agent_tools.ps1` es una implementación reproducible consolidada a partir del procedimiento documentado durante el piloto. No se presenta como una copia bit a bit del script histórico original, cuyo contenido completo no quedó preservado. Su validez debe comprobarse mediante `validate_results.ps1` y la comparación con los resultados preservados.
+
+## 10. Datos procesados
+
+### `data/processed/runs.csv`
+
+Inventario maestro de los 20 runs del caso piloto. Incluye su conclusión y, cuando corresponde, la etapa y causa resumida del fallo.
+
+### `data/processed/agent-tool-invocations.csv`
+
+Dataset a nivel de invocación. Incluye:
 
 ```text
 Run_ID
@@ -266,7 +346,9 @@ Tool_Type
 Category
 ```
 
-`agent-tool-summary.csv` representa el nivel de run e incluye:
+### `data/processed/agent-tool-summary.csv`
+
+Resumen a nivel de run. Incluye:
 
 ```text
 Run_ID
@@ -279,14 +361,70 @@ Unique_Tool_Names
 Tool_Sequence
 ```
 
-La clasificación de fallos debe conservarse en `failure-classification.csv`, incluyendo el `run_id`, tipo/etapa del fallo, evidencia observada y si la actividad instrumental del agente era observable.
+### `data/processed/failure-classification.csv`
 
-## 11. Alcance y limitaciones de reproducción
+Clasificación de los 15 runs fallidos. Incluye la etapa y causa resumida del fallo, si el agente inició, si hubo intento de ejecución y si las tool calls eran observables en los artefactos disponibles.
+
+En el fallo de setup/install, la ausencia de invocaciones observables no se registra como evidencia de que el agente haya utilizado cero herramientas; el agente no llegó a iniciar de forma comparable.
+
+## 11. Resultados derivados
+
+Los archivos de `results/` contienen las salidas agregadas utilizadas para comprobar las cifras del artículo:
+
+- `tool-frequency.csv`: frecuencia y porcentaje por herramienta.
+- `category-frequency.csv`: frecuencia y porcentaje por categoría.
+- `transition-frequency.csv`: frecuencia de transiciones herramienta -> herramienta.
+- `category-transition-frequency.csv`: frecuencia de transiciones categoría -> categoría.
+- `failure-summary.csv`: resumen de los fallos observados.
+- `pilot-summary.md`: síntesis legible de los resultados preliminares.
+
+## 12. Alcance y limitaciones de reproducción
 
 Este paquete reproduce los **resultados preliminares del caso piloto** y no pretende representar todavía el estudio completo sobre diez repositorios.
 
-La disponibilidad futura de logs y artefactos en GitHub no está garantizada; por esta razón, la reproducción principal debe comenzar desde los datos preservados dentro del paquete.
+Las principales limitaciones son:
 
-El contenido completo del script histórico original de extracción no quedó registrado durante el piloto. La versión consolidada incluida en `scripts/` debe validarse comparando sus salidas con los CSV y resultados reportados en esta entrega.
+- el caso piloto corresponde a un único repositorio;
+- los 15 fallos disponibles están dominados por fallos de infraestructura, autenticación o inferencia previos a una trayectoria instrumental comparable;
+- el criterio histórico exacto que llevó a conformar el subconjunto piloto de 20 runs no quedó documentado completamente;
+- el script histórico original de extracción no fue preservado bit a bit;
+- no se conservaron las versiones exactas de todos los componentes internos del runtime de GH-AW en el momento de los runs originales.
 
-Los 15 runs fallidos del piloto corresponden principalmente a fallos de infraestructura, autenticación o inferencia previos a la actividad instrumental. Por ello, no se utilizan para concluir que determinados patrones de herramientas causen éxito o fallo.
+Estas limitaciones no impiden reproducir las cifras del piloto a partir de los artefactos y datos preservados, pero restringen la generalización de los resultados.
+
+## 13. Repositorio y versión del paquete
+
+Repositorio de desarrollo:
+
+```text
+https://github.com/LeandroEsteban/ghaw-tool-invocation-study
+```
+
+Versión correspondiente a la entrega de Etapa 2:
+
+```text
+Tag: [COMPLETAR_TAG]
+Commit: [COMPLETAR_COMMIT]
+```
+
+El commit puede obtenerse con:
+
+```bash
+git rev-parse HEAD
+```
+
+La versión publicada en Zenodo debe corresponder exactamente al tag y commit indicados arriba.
+
+## 14. Archivo en Zenodo
+
+DOI de la versión archivada:
+
+```text
+[COMPLETAR_DOI_ZENODO]
+```
+
+Una vez publicado el registro en Zenodo, este DOI debe coincidir con la versión identificada por el tag y commit de la sección anterior.
+
+## 15. Estado del avance
+
+Este paquete corresponde a la implementación mínima y resultados preliminares de la **Etapa 2**. El estudio completo ampliará el análisis a diez repositorios y aplicará el mismo procedimiento de extracción, clasificación y análisis sobre un conjunto mayor de ejecuciones.
