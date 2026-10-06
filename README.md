@@ -391,3 +391,13 @@ Las principales limitaciones son:
 - no se conservaron las versiones exactas de todos los componentes internos del runtime de GH-AW en el momento de los runs originales.
 
 Estas limitaciones no impiden reproducir las cifras del piloto a partir de los artefactos y datos preservados, pero restringen la generalización de los resultados.
+
+## Versión correspondiente a la Etapa 2
+
+La versión del paquete utilizada para los resultados preliminares presentados en la Etapa 2 corresponde a:
+
+- Tag: `etapa2`
+- Commit: `c70a9816d068075c972d8c343edbd4be57a4f955`
+- Zenodo DOI: https://doi.org/10.5281/zenodo.23186301
+
+Esta información fue incorporada posteriormente al README únicamente con fines de documentación. Los datos, scripts y resultados asociados a la Etapa 2 corresponden al tag y commit indicados anteriormente.
