@@ -199,7 +199,7 @@ La estructura relevante del repositorio es:
 ├── README.md
 ├── scripts/
 │   ├── extract_agent_tools.ps1
-│   ├── analyze_sequences.ps1
+│   ├── analyze_results.ps1
 │   └── validate_results.ps1
 ├── data/
 │   ├── raw/
@@ -256,7 +256,7 @@ Este es el procedimiento mínimo para regenerar las frecuencias y transiciones r
 Desde la raíz del repositorio, ejecutar en PowerShell:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\analyze_sequences.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\analyze_results.ps1
 powershell -ExecutionPolicy Bypass -File .\scripts\validate_results.ps1
 ```
 
@@ -300,7 +300,7 @@ Para repetir primero la extracción desde los logs preservados y luego regenerar
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\extract_agent_tools.ps1
-powershell -ExecutionPolicy Bypass -File .\scripts\analyze_sequences.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\analyze_results.ps1
 powershell -ExecutionPolicy Bypass -File .\scripts\validate_results.ps1
 ```
 
