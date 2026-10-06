@@ -1,0 +1,14 @@
+[2026-08-12T13:57:04.069Z] [INFO] [difc] Guard policy: {"allow-only":{"approval-labels":[],"blocked-users":[],"min-integrity":"none","repos":"all","trusted-users":[]}}
+[2026-08-12T13:57:04.189Z] [INFO] [difc] Loaded discovered WASM guard from file: 00-github-guard.wasm
+[2026-08-12T13:57:04.194Z] [INFO] [difc] Registered guard 'github'
+[2026-08-12T13:57:04.208Z] [DEBUG] [backend] GetOrLaunch called for server: github
+[2026-08-12T13:57:04.227Z] [INFO] [backend] Launching MCP backend server: server=github, command=docker, args=[run --rm -i -e NO_COLOR=... -e TERM=... -e PYTHONUNBUFFERED=... -e GITHUB_READ_ONLY=... -e GITHUB_TOOLSETS=issu... -e GITHUB_HOST=http... -e GITHUB_PERSONAL_ACCESS_TOKEN=ghs_... ghcr.io/github/github-mcp-server:v1.0.4]
+[2026-08-12T13:57:04.411Z] [INFO] [backend] [stderr] time=2026-08-12T13:57:04.411Z level=INFO msg="starting server" version=v1.0.4 host=https://github.com dynamicToolsets=false readOnly=true lockdownEnabled=false
+[2026-08-12T13:57:04.413Z] [INFO] [backend] [stderr] GitHub MCP Server running on stdio
+[2026-08-12T13:57:04.414Z] [INFO] [backend] [stderr] time=2026-08-12T13:57:04.413Z level=INFO msg="server run start"
+[2026-08-12T13:57:04.415Z] [INFO] [backend] [stderr] time=2026-08-12T13:57:04.413Z level=INFO msg="server connecting"
+[2026-08-12T13:57:04.416Z] [INFO] [backend] [stderr] time=2026-08-12T13:57:04.413Z level=INFO msg="server session connected" session_id=""
+[2026-08-12T13:57:04.416Z] [INFO] [backend] Successfully launched MCP backend server: server=github
+[2026-08-12T13:57:04.417Z] [INFO] [backend] [stderr] time=2026-08-12T13:57:04.415Z level=INFO msg="session initialized"
+[2026-08-12T13:57:04.418Z] [INFO] [backend] Backend server info: name=github-mcp-server, version=v1.0.4
+[2026-08-12T13:57:04.465Z] [INFO] [backend] Successfully registered tools from github (took 256.519587ms)

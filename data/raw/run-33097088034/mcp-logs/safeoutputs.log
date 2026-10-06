@@ -1,0 +1,8 @@
+[2026-08-27T17:46:45.408Z] [INFO] [difc] Guard policy: {"write-sink":{"accept":["*"]}}
+[2026-08-27T17:46:45.412Z] [INFO] [difc] Created write-sink guard with 1 accept patterns
+[2026-08-27T17:46:45.415Z] [INFO] [difc] Registered guard 'write-sink'
+[2026-08-27T17:46:45.552Z] [DEBUG] [backend] GetOrLaunch called for server: safeoutputs
+[2026-08-27T17:46:45.721Z] [INFO] [backend] Configuring HTTP MCP backend: safeoutputs, url=http://host.docker.internal:3001
+[2026-08-27T17:46:45.734Z] [INFO] [backend] Successfully configured HTTP MCP backend: safeoutputs
+[2026-08-27T17:46:45.736Z] [INFO] [backend] Backend server info: name=safeoutputs, version=1.0.0
+[2026-08-27T17:46:45.785Z] [INFO] [backend] Successfully registered tools from safeoutputs (took 231.20497ms)

@@ -1,0 +1,311 @@
+[2026-09-28T13:38:05.115Z] [INFO] [difc] Guard policy: {"allow-only":{"approval-labels":[],"blocked-users":[],"min-integrity":"none","repos":"all","trusted-users":[]}}
+[2026-09-28T13:38:05.239Z] [INFO] [difc] Loaded discovered WASM guard from file: 00-github-guard.wasm
+[2026-09-28T13:38:05.244Z] [INFO] [difc] Registered guard 'github'
+[2026-09-28T13:38:05.282Z] [DEBUG] [backend] GetOrLaunch called for server: github
+[2026-09-28T13:38:05.294Z] [INFO] [backend] Launching MCP backend server: server=github, command=docker, args=[run --rm -i -e NO_COLOR=... -e TERM=... -e PYTHONUNBUFFERED=... -e GITHUB_HOST=http... -e GITHUB_PERSONAL_ACCESS_TOKEN=ghs_... -e GITHUB_READ_ONLY=... -e GITHUB_TOOLSETS=issu... ghcr.io/github/github-mcp-server:v1.0.4]
+[2026-09-28T13:38:05.443Z] [INFO] [backend] [stderr] time=2026-09-28T13:38:05.442Z level=INFO msg="starting server" version=v1.0.4 host=https://github.com dynamicToolsets=false readOnly=true lockdownEnabled=false
+[2026-09-28T13:38:05.445Z] [INFO] [backend] [stderr] GitHub MCP Server running on stdio
+[2026-09-28T13:38:05.446Z] [INFO] [backend] [stderr] time=2026-09-28T13:38:05.445Z level=INFO msg="server run start"
+[2026-09-28T13:38:05.447Z] [INFO] [backend] [stderr] time=2026-09-28T13:38:05.445Z level=INFO msg="server connecting"
+[2026-09-28T13:38:05.447Z] [INFO] [backend] Successfully launched MCP backend server: server=github
+[2026-09-28T13:38:05.448Z] [INFO] [backend] [stderr] time=2026-09-28T13:38:05.445Z level=INFO msg="server session connected" session_id=""
+[2026-09-28T13:38:05.448Z] [INFO] [backend] [stderr] time=2026-09-28T13:38:05.446Z level=INFO msg="session initialized"
+[2026-09-28T13:38:05.449Z] [INFO] [backend] Backend server info: name=github-mcp-server, version=v1.0.4
+[2026-09-28T13:38:05.513Z] [INFO] [backend] Successfully registered tools from github (took 229.833598ms)
+[2026-09-28T13:38:30.458Z] [INFO] [difc] Initializing guard session state: session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl, policy_source=server
+[2026-09-28T13:38:30.459Z] [INFO] [difc] Initializing guard session state: session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl, policy_source=server
+[2026-09-28T13:38:30.459Z] [INFO] [difc] Calling label_agent: session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl, guard=github, policy={"allow-only":{"repos":"all","min-integrity":"none"}}
+[2026-09-28T13:38:30.460Z] [INFO] [difc] Calling label_agent: session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl, guard=github, policy={"allow-only":{"repos":"all","min-integrity":"none"}}
+[2026-09-28T13:38:30.485Z] [INFO] [difc] label_agent response: session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl, guard=github, response={"agent":{"secrecy":[],"integrity":["none:all"]},"difc_mode":"filter","normalized_policy":{"min-integrity":"none","scope_kind":"All"}}
+[2026-09-28T13:38:30.487Z] [INFO] [difc] Guard policy initialized: session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl, guard_policy.source=server, difc_mode=filter, guard_policy.normalized=map[min-integrity:none scope_kind:all]
+[2026-09-28T13:38:30.497Z] [INFO] [difc] label_agent response: session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl, guard=github, response={"agent":{"secrecy":[],"integrity":["none:all"]},"difc_mode":"filter","normalized_policy":{"min-integrity":"none","scope_kind":"All"}}
+[2026-09-28T13:38:30.498Z] [INFO] [difc] Guard policy initialized: session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl, guard_policy.source=server, difc_mode=filter, guard_policy.normalized=map[min-integrity:none scope_kind:all]
+[2026-09-28T13:38:30.506Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:30.508Z] [INFO] [backend] Launching MCP backend server for session 'gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl': server=github for session 'gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl', command=docker, args=[run --rm -i -e NO_COLOR=... -e TERM=... -e PYTHONUNBUFFERED=... -e GITHUB_HOST=http... -e GITHUB_PERSONAL_ACCESS_TOKEN=ghs_... -e GITHUB_READ_ONLY=... -e GITHUB_TOOLSETS=issu... ghcr.io/github/github-mcp-server:v1.0.4]
+[2026-09-28T13:38:30.631Z] [INFO] [backend] [stderr] time=2026-09-28T13:38:30.631Z level=INFO msg="starting server" version=v1.0.4 host=https://github.com dynamicToolsets=false readOnly=true lockdownEnabled=false
+[2026-09-28T13:38:30.633Z] [INFO] [backend] [stderr] GitHub MCP Server running on stdio
+[2026-09-28T13:38:30.635Z] [INFO] [backend] [stderr] time=2026-09-28T13:38:30.633Z level=INFO msg="server run start"
+[2026-09-28T13:38:30.635Z] [INFO] [backend] Successfully launched MCP backend server for session 'gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl': server=github for session 'gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl'
+[2026-09-28T13:38:30.635Z] [INFO] [backend] [stderr] time=2026-09-28T13:38:30.633Z level=INFO msg="server connecting"
+[2026-09-28T13:38:30.636Z] [INFO] [backend] [stderr] time=2026-09-28T13:38:30.633Z level=INFO msg="server session connected" session_id=""
+[2026-09-28T13:38:30.637Z] [INFO] [backend] [stderr] time=2026-09-28T13:38:30.634Z level=INFO msg="session initialized"
+[2026-09-28T13:38:30.645Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:30.662Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:30.676Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:30.677Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:30.684Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:30.686Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:30.694Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:30.695Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:30.708Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:30.709Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:31.026Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:31.028Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:31.093Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:31.095Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:31.103Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:31.105Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:34.951Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:34.953Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:34.961Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:34.963Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:34.976Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:34.978Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:35.266Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:35.267Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:38.868Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:38.869Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:38.877Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:38.878Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:38.891Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:38.892Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:39.907Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:39.908Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:39.916Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:39.939Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:40.298Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:40.299Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:40.308Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:40.309Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:40.508Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:40.509Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:40.517Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:40.519Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:40.762Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:40.763Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:40.771Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:40.772Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:40.783Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:40.784Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:40.794Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:40.795Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.057Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.058Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.068Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.069Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.079Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.080Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.088Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.089Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.272Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.273Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.281Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.283Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.292Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.293Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.301Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.303Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.312Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.314Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.322Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.323Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.332Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.333Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.341Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.343Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.543Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.544Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.552Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.554Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.812Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.813Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.821Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.823Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.833Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.836Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.844Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:41.845Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:42.044Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:42.046Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:42.054Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:42.055Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:42.253Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:42.254Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:42.263Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:42.264Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:42.501Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:42.502Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:42.511Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:42.512Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:42.712Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:42.714Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:42.722Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:42.723Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:42.951Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:42.952Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:42.961Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:42.962Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:42.971Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:42.972Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:42.980Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:42.981Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:43.244Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:43.259Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:43.267Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:43.268Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:43.488Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:43.490Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:43.498Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:43.499Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:43.708Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:43.709Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:43.717Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:43.719Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:43.964Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:43.965Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:43.974Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:43.975Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:44.215Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:44.216Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:44.224Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:44.225Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:44.414Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:44.415Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:44.424Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:44.425Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:44.693Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:44.694Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:44.703Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:44.704Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:44.880Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:44.882Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:44.890Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:44.891Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:45.130Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:45.131Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:45.139Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:45.140Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:45.149Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:45.151Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:45.158Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:45.160Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:45.373Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:45.375Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:59.302Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:59.303Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:59.311Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:59.313Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:59.325Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:38:59.326Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:00.344Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:00.345Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:00.353Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:00.355Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:00.587Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:00.588Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:00.597Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:00.598Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:00.606Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:00.607Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:00.615Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:00.617Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:00.837Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:00.839Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:00.847Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:00.848Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:00.857Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:00.859Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:00.866Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:00.867Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:01.181Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:01.182Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:01.191Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:01.192Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:01.420Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:01.421Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:01.429Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:01.430Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:01.642Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:01.643Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:01.652Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:01.653Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:01.888Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:01.889Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:01.897Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:01.899Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:01.907Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:01.908Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:01.916Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:01.917Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:02.129Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:02.130Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:02.138Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:02.139Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:02.428Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:02.429Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:02.438Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:02.439Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:02.733Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:02.735Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:02.744Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:02.745Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:02.965Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:02.966Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:02.974Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:02.975Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:02.984Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:02.986Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:02.993Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:02.995Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:03.271Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:03.272Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:03.280Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:03.282Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:03.495Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:03.496Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:03.506Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:03.507Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:03.518Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:03.521Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:03.528Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:03.530Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:03.540Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:03.541Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:03.549Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:03.550Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:03.558Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:03.559Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:03.566Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:03.568Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:03.830Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:03.831Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:03.839Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:03.841Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.040Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.041Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.049Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.050Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.059Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.060Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.068Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.069Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.310Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.312Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.321Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.322Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.511Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.512Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.520Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.522Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.708Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.709Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.718Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.719Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.727Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.728Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.736Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.737Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.745Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.746Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.754Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.756Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.938Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.940Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.949Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.950Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.960Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.961Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.969Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:04.971Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:05.204Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl
+[2026-09-28T13:39:05.205Z] [DEBUG] [backend] Reusing session connection: server=github, session=gUzHgIR4XIg9fTU5L58cfhq5EVGKh7agQezXfd38OSpm515oZDB6sH8jl

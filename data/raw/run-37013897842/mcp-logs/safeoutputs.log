@@ -1,0 +1,14 @@
+[2026-10-02T13:36:03.919Z] [INFO] [difc] Guard policy: {"write-sink":{"accept":["*"]}}
+[2026-10-02T13:36:03.923Z] [INFO] [difc] Created write-sink guard with 1 accept patterns
+[2026-10-02T13:36:03.926Z] [INFO] [difc] Registered guard 'write-sink'
+[2026-10-02T13:36:04.050Z] [DEBUG] [backend] GetOrLaunch called for server: safeoutputs
+[2026-10-02T13:36:04.051Z] [INFO] [backend] Configuring HTTP MCP backend: safeoutputs, url=http://host.docker.internal:3001
+[2026-10-02T13:36:04.059Z] [INFO] [backend] Successfully configured HTTP MCP backend: safeoutputs
+[2026-10-02T13:36:04.059Z] [INFO] [backend] Backend server info: name=safeoutputs, version=1.0.0
+[2026-10-02T13:36:04.265Z] [INFO] [backend] Successfully registered tools from safeoutputs (took 45.165394ms)
+[2026-10-02T13:37:20.446Z] [INFO] [difc] Initializing guard session state: session=82ETMfnFu36zOUTFvF5DvaYhGvCyRqzWHl94ozcKa3T25DueoUaz61vzUl, policy_source=server
+[2026-10-02T13:37:20.446Z] [INFO] [difc] Calling label_agent: session=82ETMfnFu36zOUTFvF5DvaYhGvCyRqzWHl94ozcKa3T25DueoUaz61vzUl, guard=write-sink, policy={"write-sink":{"accept":["*"]}}
+[2026-10-02T13:37:20.449Z] [INFO] [difc] label_agent response: session=82ETMfnFu36zOUTFvF5DvaYhGvCyRqzWHl94ozcKa3T25DueoUaz61vzUl, guard=write-sink, response={"agent":{"secrecy":[],"integrity":[]},"difc_mode":"filter"}
+[2026-10-02T13:37:20.450Z] [INFO] [difc] Guard policy initialized: session=82ETMfnFu36zOUTFvF5DvaYhGvCyRqzWHl94ozcKa3T25DueoUaz61vzUl, guard_policy.source=server, difc_mode=filter, guard_policy.normalized=map[]
+[2026-10-02T13:37:20.453Z] [DEBUG] [backend] GetOrLaunchForSession called: server=safeoutputs, session=82ETMfnFu36zOUTFvF5DvaYhGvCyRqzWHl94ozcKa3T25DueoUaz61vzUl
+[2026-10-02T13:37:20.454Z] [DEBUG] [backend] GetOrLaunch called for server: safeoutputs

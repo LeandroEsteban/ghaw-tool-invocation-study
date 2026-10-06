@@ -1,0 +1,16 @@
+[2026-09-30T13:36:37.438Z] [INFO] [difc] Guard policy: {"write-sink":{"accept":["*"]}}
+[2026-09-30T13:36:37.441Z] [INFO] [difc] Created write-sink guard with 1 accept patterns
+[2026-09-30T13:36:37.444Z] [INFO] [difc] Registered guard 'write-sink'
+[2026-09-30T13:36:37.446Z] [DEBUG] [backend] GetOrLaunch called for server: safeoutputs
+[2026-09-30T13:36:37.447Z] [INFO] [backend] Configuring HTTP MCP backend: safeoutputs, url=http://host.docker.internal:3001
+[2026-09-30T13:36:37.454Z] [INFO] [backend] Successfully configured HTTP MCP backend: safeoutputs
+[2026-09-30T13:36:37.454Z] [INFO] [backend] Backend server info: name=safeoutputs, version=1.0.0
+[2026-09-30T13:36:37.655Z] [INFO] [backend] Successfully registered tools from safeoutputs (took 40.839007ms)
+[2026-09-30T13:38:38.533Z] [INFO] [difc] Initializing guard session state: session=BWh5OMKLvL28ryZgPPkuHgx6Jy0pCdiVqeF0SfiTYY9LfbAQCvxI72jahM, policy_source=server
+[2026-09-30T13:38:38.534Z] [INFO] [difc] Calling label_agent: session=BWh5OMKLvL28ryZgPPkuHgx6Jy0pCdiVqeF0SfiTYY9LfbAQCvxI72jahM, guard=write-sink, policy={"write-sink":{"accept":["*"]}}
+[2026-09-30T13:38:38.537Z] [INFO] [difc] label_agent response: session=BWh5OMKLvL28ryZgPPkuHgx6Jy0pCdiVqeF0SfiTYY9LfbAQCvxI72jahM, guard=write-sink, response={"agent":{"secrecy":[],"integrity":[]},"difc_mode":"filter"}
+[2026-09-30T13:38:38.537Z] [INFO] [difc] Guard policy initialized: session=BWh5OMKLvL28ryZgPPkuHgx6Jy0pCdiVqeF0SfiTYY9LfbAQCvxI72jahM, guard_policy.source=server, difc_mode=filter, guard_policy.normalized=map[]
+[2026-09-30T13:38:38.541Z] [DEBUG] [backend] GetOrLaunchForSession called: server=safeoutputs, session=BWh5OMKLvL28ryZgPPkuHgx6Jy0pCdiVqeF0SfiTYY9LfbAQCvxI72jahM
+[2026-09-30T13:38:38.542Z] [DEBUG] [backend] GetOrLaunch called for server: safeoutputs
+[2026-09-30T13:38:43.431Z] [DEBUG] [backend] GetOrLaunchForSession called: server=safeoutputs, session=BWh5OMKLvL28ryZgPPkuHgx6Jy0pCdiVqeF0SfiTYY9LfbAQCvxI72jahM
+[2026-09-30T13:38:43.431Z] [DEBUG] [backend] GetOrLaunch called for server: safeoutputs
